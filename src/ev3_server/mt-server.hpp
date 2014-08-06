@@ -1,3 +1,4 @@
+// Compile with g++ -lncurses -lusb -lcryptopp -lSDL -lboost_system -lpthread -I~/prg/c++/include -std=c++0x -o server server.cpp
 #ifndef __MT_SERVER_HPP
 #define __MT_SERVER_HPP
 
