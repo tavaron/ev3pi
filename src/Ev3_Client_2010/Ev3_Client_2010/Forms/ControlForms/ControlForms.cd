@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EV3ControlClient.GuiControlForm" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgASACAgACIAYQAgAJKAAAACAAAABACCAAABIUAAAAA=</HashCode>
+      <FileName>Forms\ControlForms\GuiControlForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EV3ControlClient.KeyboardControlForm" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAGIAwQIkAICAAAACAAIAAACAAAAAIUEAAAA=</HashCode>
+      <FileName>Forms\ControlForms\KeyboardControlForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EV3ControlClient.JoystickControlForm" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACIAQQAgAICAAAACAAAAAACAAAAAIUEAAAA=</HashCode>
+      <FileName>Forms\ControlForms\JoystickControlForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="EV3ControlClient.IControlForm">
+    <Position X="0.5" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQQAAEAAAAAAAAAAEAACIAAAAAACAAAA=</HashCode>
+      <FileName>Forms\ControlForms\IControlForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

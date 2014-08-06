@@ -1,0 +1,16 @@
+
+[indentation]
+indent_width=4
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=false
+indent_mode=2
+
+[project]
+name=EV3_Client
+base_path=/media/FH-Daten/Ev3_Client_2010/
+make_in_base_path=false
+
+[files]
+current_page=0
+FILE_NAME_0=187;Keiner;0;16;1;1;0;/media/FH-Daten/Ev3_Client_2010/Ev3_Client_2010/EV3_Client.geany;0

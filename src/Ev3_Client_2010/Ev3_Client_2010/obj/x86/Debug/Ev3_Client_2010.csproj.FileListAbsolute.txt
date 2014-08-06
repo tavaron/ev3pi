@@ -1,0 +1,14 @@
+D:\Ev3_Client_2010\Ev3_Client_2010\bin\Debug\Ev3_Client_2010.exe
+D:\Ev3_Client_2010\Ev3_Client_2010\bin\Debug\Ev3_Client_2010.pdb
+D:\Ev3_Client_2010\Ev3_Client_2010\bin\Debug\MjpegProcessor.dll
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\EV3ControlClient.GuiControlForm.resources
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\EV3ControlClient.JoystickControlForm.resources
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\EV3ControlClient.KeyboardControlForm.resources
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\EV3ControlClient.MainForm.resources
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\Ev3_Client_2010.Properties.Resources.resources
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\EV3ControlClient.WebcamForm.resources
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\Ev3_Client_2010.exe
+D:\Ev3_Client_2010\Ev3_Client_2010\obj\x86\Debug\Ev3_Client_2010.pdb

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EV3ControlClient.EV3ControlData">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAgKAAQAAAoAAAAAAAOBAAAAgAAAAAAAAEAAA=</HashCode>
+      <FileName>Communication\EV3ControlData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="EV3ControlClient.drive_t">
+    <Position X="3" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAIEAAACAAAJAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Communication\drive_t.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

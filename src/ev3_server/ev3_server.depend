@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1391891435 source:/home/tavaron/emb/Mindstorms/Code/ev3_server/mt-server.cpp
+	"mt-server.hpp"
+
+1391791823 /home/tavaron/emb/Mindstorms/Code/ev3_server/net.hpp
+	<boost/asio.hpp>
+	<iostream>
+	<string>
+	<string.h>
+
+1391879841 /home/tavaron/emb/Mindstorms/Code/ev3_server/ev3_usbcom.hpp
+	<usb.h>
+	"ev3_usbcom.cpp"
+
+1390943611 source:/home/tavaron/emb/Mindstorms/Code/ev3_server/server.cpp
+	<iostream>
+	<boost/asio.hpp>
+	<string>
+	"ev3_usbcom.hpp"
+	<crypto++/sha.h>
+	<crypto++/base64.h>
+
+1391791699 source:/home/tavaron/emb/Mindstorms/Code/ev3_server/ev3_usbcom.cpp
+	"ev3_usbcom.hpp"
+
+1391891467 /home/tavaron/emb/Mindstorms/Code/ev3_server/mt-server.hpp
+	<iostream>
+	<boost/asio.hpp>
+	<string>
+	<unistd.h>
+	<syslog.h>
+	<signal.h>
+	"net.hpp"
+	<ui.hpp>
+	"ev3_usbcom.hpp"
+	"pidfile.hpp"
+
+1391879852 /home/tavaron/emb/Mindstorms/Code/ev3_server/ev3_usbcom.cpp
+
+1391887763 /home/tavaron/emb/Mindstorms/Code/ev3_server/pidfile.hpp
+	<stdio.h>
+
