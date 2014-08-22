@@ -20,6 +20,8 @@
 #ifndef __EV3BASECOM_HPP
 #define __EV3BASECOM_HPP 
 
+#include <unistd.h>
+
 /* Error codes */
 #define EV3_OK                      0
 #define EV3_NOT_PRESENT             1
@@ -60,7 +62,5 @@ class Ev3BaseCom {
 		virtual ev3_error_t status(bool echo);
 		
 };
-
-#include "Ev3BaseCom.cpp"
 
 #endif

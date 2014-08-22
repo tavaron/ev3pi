@@ -1,5 +1,4 @@
-#ifndef __EV3_USBCOM_CPP
-#define __EV3_USBCOM_CPP
+#include "ev3_usbcom.hpp"
 
 /* constructor */
 ev3_USBCom::ev3_USBCom(unsigned char Motor_L, unsigned char Motor_R) {
@@ -498,4 +497,4 @@ ev3_error_t ev3_USBCom::ev3_recv_buf( ev3_t *ev3, char *buf, int len )  {
   return EV3_OK;
 } // ev3_recv_buf
 
-#endif
+

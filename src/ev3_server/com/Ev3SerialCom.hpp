@@ -21,6 +21,8 @@
 #ifndef __EV3SERIALCOM_HPP
 #define __EV3SERIALCOM_HPP
 
+#include "Ev3BaseCom.hpp"
+
 /* Error codes */
 #define EV3_SERIAL_OPEN_PORT_ERROR	16
 #define EV3_SERIAL_IO_ERROR			17
@@ -35,8 +37,6 @@ class Ev3SerialCom : public Ev3BaseCom {
 	public:
 		Ev3SerialCom(char* tty, unsigned char Motor_L, unsigned char Motor_R);
 		virtual ev3_error_t status(bool echo);
-}
-
-#include "Ev3SerialCom.cpp"
+};
 
 #endif

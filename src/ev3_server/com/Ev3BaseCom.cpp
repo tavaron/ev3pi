@@ -16,9 +16,7 @@
 //      along with this program; if not, write to the Free Software
 //      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 //      MA 02110-1301, USA.
-
-#ifndef __EV3BASECOM_CPP
-#define __EV3BASECOM_CPP
+#include "Ev3BaseCom.hpp"
 
 Ev3BaseCom::Ev3BaseCom(unsigned char Motor_L, unsigned char Motor_R) {
 	
@@ -226,4 +224,3 @@ ev3_error_t Ev3BaseCom::stop(bool brakes) {
 	return err;
 } // stop
 
-#endif

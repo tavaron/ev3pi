@@ -17,10 +17,9 @@
 //      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 //      MA 02110-1301, USA.
 
-
-#ifndef __EV3SERIALCOM_CPP
-#define __EV3SERIALCOM_CPP
-
+#include "Ev3SerialCom.hpp"
+#include <termios.h>
+#include <fcntl.h>
 
 Ev3SerialCom::Ev3SerialCom(char* tty, unsigned char Motor_L, unsigned char Motor_R)
 : Ev3BaseCom(Motor_L, Motor_R)
@@ -64,7 +63,7 @@ ev3_error_t Ev3SerialCom::send(unsigned char* arr) {
 }
 
 
-ev3_error_t Ev3UsbCom::status(bool echo) {
+ev3_error_t Ev3SerialCom::status(bool echo) {
 	/* check if ncurses is used */
 	#ifdef __NCURSES_H
 	if(echo) {
@@ -87,4 +86,3 @@ ev3_error_t Ev3UsbCom::status(bool echo) {
 	return err;
 }
 
-#endif

@@ -21,6 +21,8 @@
 #define __EV3USBCOM_CPP
 
 #include <usb.h>
+#include "Ev3UsbCom.hpp"
+
 
 Ev3UsbCom::Ev3UsbCom(unsigned char Motor_L, unsigned char Motor_R)
 : Ev3BaseCom(Motor_L, Motor_R)

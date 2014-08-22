@@ -127,6 +127,5 @@ class ev3_USBCom {
 		unsigned char convertSpeed(int s);
 };
 
-#include "ev3_usbcom.cpp"
 
 #endif
