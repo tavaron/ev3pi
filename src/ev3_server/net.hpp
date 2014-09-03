@@ -41,17 +41,6 @@
 
 namespace tavaron {
 	namespace net {
-		
-		
-		int sendData(connection_t* thread);
-		int sendCmd(connection_t* thread);
-		
-		size_t recvData(connection_t* thread);
-		size_t recvCmd(connection_t* thread);
-		
-		void threadStatus(connection_t* thread, int status);
-		void threadStatus(connection_t* thread, int status, std::string msg);
-		
 
 		typedef struct connectionElement { /* connection_t */
 
@@ -68,6 +57,18 @@ namespace tavaron {
 			bool auth;
 
 		} connection_t;
+
+		int sendData(connection_t* thread);
+		int sendCmd(connection_t* thread);
+
+		size_t recvData(connection_t* thread);
+		size_t recvCmd(connection_t* thread);
+
+		void threadStatus(connection_t* thread, int status);
+		void threadStatus(connection_t* thread, int status, std::string msg);
+
+
+
 
                             /* connections */
         class connections { /* chained list of connections/threads */
@@ -97,8 +98,6 @@ namespace tavaron {
                 int getStatus();
                 int getIndex();
         };
-
-        #include "net.cpp"
 
 		
 	}

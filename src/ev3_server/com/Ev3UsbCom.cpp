@@ -20,7 +20,7 @@
 #ifndef __EV3USBCOM_CPP
 #define __EV3USBCOM_CPP
 
-#include <usb.h>
+
 #include "Ev3UsbCom.hpp"
 
 

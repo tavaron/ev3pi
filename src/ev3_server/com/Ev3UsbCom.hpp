@@ -21,6 +21,7 @@
 #define __EV3USBCOM_HPP
 
 #include "Ev3BaseCom.hpp"
+#include <usb.h>
 
 /* Error codes */
 #define EV3_USB_WRITE_ERROR         4

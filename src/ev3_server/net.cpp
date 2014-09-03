@@ -1,10 +1,10 @@
-#ifndef __TAVARON_NET_CPP
-#define __TAVARON_NET_CPP
+#include "net.hpp"
 
 /* Methoden zu connections */
-int connections::add(pthread_t *tid)	{
+int tavaron::net::connections::add(pthread_t *tid)	{
 
-    connection_t *conn, *tmp;
+    connection_t *conn;
+    connection_t *tmp;
     conn = (connection_t*) malloc(sizeof(connection_t));
 
     if(conn == NULL)
@@ -20,7 +20,7 @@ int connections::add(pthread_t *tid)	{
     return 0;
 }
 
-int connections::add(connection_t* conn)	{
+int tavaron::net::connections::add(connection_t* conn)	{
 
     connection_t *tmp;
 
@@ -53,7 +53,7 @@ int connections::add(connection_t* conn)	{
     return 0;
 }
 
-int connections::remove(pthread_t *tid) {
+int tavaron::net::connections::remove(pthread_t *tid) {
 
     connection_t *conn, *tmp;
     for(conn = head;conn->next != conn->next->next; conn = conn->next)
@@ -68,19 +68,19 @@ int connections::remove(pthread_t *tid) {
     return -1;
 }
 
-int connections::getOpenConnections() {
+int tavaron::net::connections::getOpenConnections() {
     return openConnections;
 }
 
-int connections::getStatus() {
+int tavaron::net::connections::getStatus() {
     return status;
 }
 
-int connections::getIndex() {
+int tavaron::net::connections::getIndex() {
     return index;
 }
 
-connection_t* connections::getConnection(pthread_t *tid) {
+tavaron::net::connection_t* tavaron::net::connections::getConnection(pthread_t *tid) {
 
     connection_t *conn;
     conn = head;
@@ -93,28 +93,28 @@ connection_t* connections::getConnection(pthread_t *tid) {
     return NULL;
 }
 
-connection_t* connections::getLast() {
+tavaron::net::connection_t* tavaron::net::connections::getLast() {
     return last;
 }
 
 
 
 /* Funktionen zur Netzwerkkommunikation */
-int sendData(connection_t* thread) {
+int tavaron::net::sendData(connection_t* thread) {
 
     int r = -1;
 
     /* Beende bei leerem Puffer */
     if(thread->sdata->empty()) {
         threadStatus(thread, ST_NO_SDATA);
-        std::cerr << thread->strerr << endl;
+        std::cerr << thread->strerr << std::endl;
         return 0;
     }
 
     /* Exklusivzugriff sichern*/
     if( pthread_mutex_lock(&thread->mutex) != 0 ) {
-        threadStatus(thread, ST_CONN_ABORTED, e.what());
-        std::cerr << thread->strerr << endl;
+        threadStatus(thread, ST_CONN_ABORTED);
+        std::cerr << thread->strerr << std::endl;
 	}
 
     /* Sende Daten */
@@ -131,18 +131,18 @@ int sendData(connection_t* thread) {
             <boost::system::system_error> >& e)
     {
         threadStatus(thread, ST_CONN_ABORTED, e.what());
-        std::cerr << thread->strerr << endl;
+        std::cerr << thread->strerr << std::endl;
     }
 
     /* Exklusivzugriff freigeben */
     if( pthread_mutex_unlock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_UNLOCK);
-		std::cerr << thread->strerr << endl;
+		std::cerr << thread->strerr << std::endl;
 	}
     return r;
 }
 
-int sendCmd(connection_t* thread) {
+int tavaron::net::sendCmd(connection_t* thread) {
 
     int r = -1;
 
@@ -155,8 +155,8 @@ int sendCmd(connection_t* thread) {
     /* lock thread mutex and exit if not possible*/
     if( pthread_mutex_lock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_LOCK);
-        std::cerr	<< thread->strerr << endl;
-        return;
+        std::cerr	<< thread->strerr << std::endl;
+        return -1;
 	}
 
     /* send command */
@@ -173,7 +173,7 @@ int sendCmd(connection_t* thread) {
             <boost::system::system_error> >& e)
     {
         threadStatus(thread, ST_CONN_ABORTED, e.what());
-        std::cerr << thread->strerr << endl;
+        std::cerr << thread->strerr << std::endl;
     }
 
     thread->scmd[0] = 255;
@@ -181,13 +181,13 @@ int sendCmd(connection_t* thread) {
     /* unlock thread mutex */
     if( pthread_mutex_unlock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_UNLOCK);
-        std::cerr << thread->strerr << endl;
+        std::cerr << thread->strerr << std::endl;
 	}
 
     return r;
 }
 
-size_t recvData(connection_t* thread) {
+size_t tavaron::net::recvData(connection_t* thread) {
 
 	/* init variables */
     char buf[LENDATA+1];
@@ -198,8 +198,8 @@ size_t recvData(connection_t* thread) {
     /* lock thread mutex and exit if not possible*/
     if( pthread_mutex_lock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_LOCK);
-        std::cerr	<< thread->strerr << endl;
-        return;
+        std::cerr	<< thread->strerr << std::endl;
+        return -1;
 	}
 
     /* Schleife bis EOF */
@@ -217,7 +217,7 @@ size_t recvData(connection_t* thread) {
                 <boost::system::system_error> >& e)
         {
             threadStatus(thread, ST_NO_RDATA, e.what());
-            std::cerr << thread->strerr << endl;
+            std::cerr << thread->strerr << std::endl;
             bytes = 0;
             break;
         }
@@ -227,13 +227,13 @@ size_t recvData(connection_t* thread) {
     /* unlock thread mutex */
     if( pthread_mutex_unlock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_UNLOCK);
-        std::cerr	<< thread->strerr << endl;
+        std::cerr	<< thread->strerr << std::endl;
 	}
 
     return bytes;
 }
 
-size_t recvCmd(connection_t* thread) {
+size_t tavaron::net::recvCmd(connection_t* thread) {
 
     size_t bytes = 0;
     boost::system::error_code error;
@@ -243,7 +243,7 @@ size_t recvCmd(connection_t* thread) {
     /* Exklusivzugriff sichern*/
     if( pthread_mutex_lock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_LOCK);
-		std::cerr << thread->strerr << endl;
+		std::cerr << thread->strerr << std::endl;
 	}
 
     try {
@@ -265,13 +265,13 @@ size_t recvCmd(connection_t* thread) {
     /* Exklusivzugriff freigeben */
     if( pthread_mutex_unlock(&thread->mutex) != 0 ) {
 		threadStatus(thread, ST_MUTEX_UNLOCK);
-		std::cerr << thread->strerr << endl;
+		std::cerr << thread->strerr << std::endl;
 	}
 	
     return bytes;
 }
 
-void threadStatus(connection_t* thread, int status) {
+void tavaron::net::threadStatus(connection_t* thread, int status) {
 	
 	thread->status = status;
 	thread->strerr->clear();
@@ -316,15 +316,13 @@ void threadStatus(connection_t* thread, int status) {
 			break;
 	}
 	
-	thread->strerr->append(" in thread ");
-	thread->strerr->append(thread->tid);
+	thread->strerr->append(" in thread x");
+	//thread->strerr->append((int)thread->tid));
 	
 }
 
-void threadStatus(connection_t* thread, int status, std::string msg) {
+void tavaron::net::threadStatus(connection_t* thread, int status, std::string msg) {
 	threadStatus(thread, status);
 	thread->strerr->append("\nmessage: ");
 	thread->strerr->append(msg);
 }
-
-#endif

@@ -23,7 +23,6 @@
 #define OUTPUTFILE "/tmp/ev3pi.log"
 #define PIDFILE "/var/run/ev3_server.pid"
 
-
 using boost::asio::ip::tcp;
 using namespace std;
 
